@@ -1,13 +1,13 @@
-# Text-to-Speech Converter
+# Genny: Audiobook Generator
 
-This repository contains a Python script that converts text files to speech audio files. It splits the input text file into smaller chunks and processes each chunk using text-to-speech services. You can choose between a free TTS service and OpenAI's TTS API.
+This repository contains a Python script that converts text files to audiobooks. It splits the input text file into smaller chunks and processes each chunk using text-to-speech services. You can choose between a free TTS service and OpenAI's TTS API.
 
 ## Features
 
-- Splits large text files into manageable chunks.
+- Splits large text files into chunks small enough to ship off to TTS services.
+- Verifies that chunking does not alter the text content.
 - Converts text chunks to speech using either a free TTS service or OpenAI's TTS API.
 - Supports parallel processing with multiple threads.
-- Verifies that chunking does not alter the text content.
 
 ## Requirements
 
@@ -33,7 +33,7 @@ This repository contains a Python script that converts text files to speech audi
 
 To run the script, use the following command:
 ```bash
-python genny.py <inputfile> [--usefreetts true|false] [--threads <num_threads>]
+python3 genny.py <inputfile> [--usefreetts true|false] [--threads <num_threads>]
 ```
 
 - `<inputfile>`: Path to the text file to be processed.
@@ -43,5 +43,5 @@ python genny.py <inputfile> [--usefreetts true|false] [--threads <num_threads>]
 ### Example
 
 ```bash
-python genny.py example.txt --usefreetts true --threads 10
+python3 genny.py example.txt
 ```
