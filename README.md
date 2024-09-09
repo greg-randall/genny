@@ -20,8 +20,8 @@ This repository contains a Python script that converts text files to speech audi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/text-to-speech-converter.git
-   cd text-to-speech-converter
+   git clone https://github.com/greg-randall/genny.git
+   cd genny
    ```
 
 2. Install the required libraries:
@@ -33,57 +33,15 @@ This repository contains a Python script that converts text files to speech audi
 
 To run the script, use the following command:
 ```bash
-python tts_converter.py <inputfile> [--usefreetts true|false] [--threads <num_threads>]
+python genny.py <inputfile> [--usefreetts true|false] [--threads <num_threads>]
 ```
 
 - `<inputfile>`: Path to the text file to be processed.
-- `--usefreetts`: Optional. Set to `true` to use the free TTS service (default) or `false` to use OpenAI's TTS API.
-- `--threads`: Optional. Number of threads to use for parallel processing (default: 24).
+- `--usefreetts`: Optional. Set to `true` to use the free TTS service (default) or `false` to use OpenAI's TTS API (make sure to add your OpenAi API key to envrioment variables).
+- `--threads`: Optional. Number of threads to use for parallel processing, default: 24 (note that this is not typically processor bound, it's internet bandwidth bound or requests per minute bound).
 
 ### Example
 
 ```bash
-python tts_converter.py example.txt --usefreetts true --threads 10
+python genny.py example.txt --usefreetts true --threads 10
 ```
-
-## Functions
-
-### split_file(input_file, max_length)
-
-Splits the input file into chunks of a specified maximum length.
-
-### text_to_speech_free(text, voice, filename)
-
-Converts text to speech using the free TTS service and saves the audio to a file.
-
-### run_text_to_speech(text, voice, filename)
-
-Runs the `text_to_speech_free` function within an asyncio event loop.
-
-### text_to_speech(text, number, folder, use_free_tts=True)
-
-Converts text to speech using either the free TTS service or OpenAI's TTS API, and saves the audio to a file.
-
-### create_folder(input_file)
-
-Creates a folder named after the input file and the current timestamp.
-
-### open_ai_cost(chunks)
-
-Calculates the estimated cost of using OpenAI's TTS API based on the number of characters in the chunks.
-
-### verification_preprocess(text)
-
-Preprocesses text by removing punctuation, converting to lowercase, and splitting into words.
-
-### flatten(lst)
-
-Flattens a nested list into a single list.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to contribute to this project by submitting issues or pull requests. If you have any questions, please contact [yourname@example.com](mailto:yourname@example.com).
