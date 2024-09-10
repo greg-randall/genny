@@ -1,3 +1,3 @@
-nltk==3.6.2
-openai==0.27.0
-edge_tts==1.0.0
+nltk>=3.6.2
+openai>=0.27.0
+edge_tts>=1.0.0
