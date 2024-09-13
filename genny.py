@@ -252,7 +252,7 @@ print(f"\nTTS on chunks using {threads} threads:")
 # Create a ThreadPoolExecutor with the specified number of threads
 with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
     # Use the executor to submit a text_to_speech task for each chunk, and collect the resulting Future objects in a list
-    futures = [executor.submit(text_to_speech, chunk, i, folder) for i, chunk in enumerate(chunks, start=1)]
+    futures = [executor.submit(text_to_speech, chunk, i, folder, use_free_tts) for i, chunk in enumerate(chunks, start=1)]
     # Iterate over the Future objects as they complete (not necessarily in the order they were submitted)
     for i, future in enumerate(concurrent.futures.as_completed(futures), start=1):
         # Print a message to indicate that a chunk has finished processing
